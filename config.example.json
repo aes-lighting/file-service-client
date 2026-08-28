@@ -1,0 +1,27 @@
+{
+  "service": {
+    "port": 3001,
+    "host": "0.0.0.0"
+  },
+  "storage": {
+    "rootDirectory": "\\\\aes-dc1\\uploads",
+    "maxFileSize": 52428800
+  },
+  "directories": [
+    {
+      "name": "INTAKE",
+      "path": "INTAKE"
+    },
+    {
+      "name": "DELIVERY",
+      "path": "DELIVERY"
+    },
+    {
+      "name": "IN-TRANSIT",
+      "path": "IN-TRANSIT"
+    }
+  ],
+  "authentication": {
+    "apiKey": "REPLACE_WITH_YOUR_SECURE_API_KEY_HERE"
+  }
+}
