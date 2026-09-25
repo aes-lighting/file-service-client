@@ -1,0 +1,15 @@
+# Valid fixture graph for SHACL gate
+@prefix files: <https://aes-lighting.com/ns/files#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://aes-lighting.com/ns/files/fixtures/upload/1>
+    a files:UploadRequest ;
+    files:directoryCode "INTAKE" ;
+    files:originalFilename "INTAKE_SHIP-12345_2026-08-28T14-23-00_abc123.jpg" .
+
+<https://aes-lighting.com/ns/files/fixtures/file/1>
+    a files:StoredFile ;
+    files:directoryCode "INTAKE" ;
+    files:originalFilename "INTAKE_SHIP-12345_2026-08-28T14-23-00_abc123.jpg" ;
+    files:storagePath "./test-files/INTAKE/INTAKE_SHIP-12345_2026-08-28T14-23-00_abc123.jpg" ;
+    files:fileSize 1024 .

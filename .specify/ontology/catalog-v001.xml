@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <uri name="https://aes-lighting.com/ns/files" uri="files_domain.ttl"/>
+  <uri name="https://aes-lighting.com/ns/files/generated" uri="files_domain.generated.ttl"/>
+  <uri name="https://aes-lighting.com/ns/files/axioms" uri="files_domain.axioms.ttl"/>
+  <uri name="https://aes-lighting.com/ns/files/shacl" uri="files_domain.shacl.ttl"/>
+  <uri name="https://aes-lighting.com/ns/files/shacl/enums" uri="files_domain.shacl.enums.ttl"/>
+</catalog>

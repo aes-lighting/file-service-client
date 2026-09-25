@@ -1,0 +1,48 @@
+# Hand-curated SHACL shapes for file-service-client fixtures / projections
+@prefix files: <https://aes-lighting.com/ns/files#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+<https://aes-lighting.com/ns/files/shacl>
+    a owl:Ontology ;
+    dct:title "Files Domain SHACL Shapes" ;
+    owl:versionInfo "0.1.0-baseline" ;
+    owl:imports <https://aes-lighting.com/ns/files/generated> ,
+                <https://aes-lighting.com/ns/files/shacl/enums> .
+
+files:StoredFileShape
+    a sh:NodeShape ;
+    sh:targetClass files:StoredFile ;
+    sh:property files:DirectoryCodePropertyShape ;
+    sh:property [
+        sh:path files:originalFilename ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path files:storagePath ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+files:UploadRequestShape
+    a sh:NodeShape ;
+    sh:targetClass files:UploadRequest ;
+    sh:property files:DirectoryCodePropertyShape ;
+    sh:property [
+        sh:path files:originalFilename ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+files:DirectoryShape
+    a sh:NodeShape ;
+    sh:targetClass files:Directory ;
+    sh:property files:DirectoryCodePropertyShape .

@@ -1,0 +1,8 @@
+# Deliberate reject: directory not in closed whitelist (must fail SHACL)
+@prefix files: <https://aes-lighting.com/ns/files#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<https://aes-lighting.com/ns/files/fixtures/upload/bad-dir>
+    a files:UploadRequest ;
+    files:directoryCode "SECRET-VAULT" ;
+    files:originalFilename "SECRET-VAULT_SHIP-1_2026-01-01T00-00-00_x.jpg" .

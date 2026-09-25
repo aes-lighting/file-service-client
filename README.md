@@ -4,6 +4,10 @@
 
 This is a minimal but functional file upload service designed for testing before production deployment and Railway integration.
 
+## Spec Kit
+
+Binding Spec Kit, ontology, and feature specs live under [`.specify/`](.specify/). Start at [`.specify/README.md`](.specify/README.md). Product MVP acceptance is **Deferred** — see [`.specify/mvp-definition.md`](.specify/mvp-definition.md). Human architecture notes: [`spec-kit/`](spec-kit/).
+
 ## What It Does
 
 - ✅ Accepts file uploads via HTTP API

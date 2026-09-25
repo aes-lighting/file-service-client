@@ -1,0 +1,82 @@
+# Curated OWL axioms for file-service-client
+# Edit in Protégé or as Turtle. Do not regenerate this file.
+@prefix files: <https://aes-lighting.com/ns/files#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+<https://aes-lighting.com/ns/files/axioms>
+    a owl:Ontology ;
+    dct:title "Files Domain Curated Axioms" ;
+    dct:description "Hand-maintained disjoint surfaces and agent must-nots. I/O correctness remains Node + Express + fs." ;
+    owl:versionInfo "0.1.0-baseline" ;
+    owl:imports <https://aes-lighting.com/ns/files/generated> ;
+    rdfs:comment "PolicyNoSecretsInGit PolicyDualSurfaceHonesty PolicyNoInventLiveRoutesFromLib OntologyRequired PolicyMvpDeferred LiveSurface TargetSurface FilenameEncodedSurface ProjectBoundUploadSurface AiRawAdvice" .
+
+#################################################################
+# Delivery surfaces (mutually exclusive where noted)
+#################################################################
+
+files:LiveSurface owl:disjointWith files:TargetSurface , files:AiRawAdvice .
+files:TargetSurface owl:disjointWith files:AiRawAdvice .
+files:FilenameEncodedSurface owl:disjointWith files:ProjectBoundUploadSurface , files:ProjectDiscoverySurface , files:AiRawAdvice .
+files:ProjectBoundUploadSurface owl:disjointWith files:ProjectDiscoverySurface , files:AiRawAdvice .
+files:ProjectDiscoverySurface owl:disjointWith files:AiRawAdvice .
+files:PublicHealthSurface owl:disjointWith files:AiRawAdvice .
+
+#################################################################
+# Core entity disjointness (live vs advice)
+#################################################################
+
+files:StoredFile owl:disjointWith files:Directory , files:ApiCredential , files:AiRawAdvice .
+files:Directory owl:disjointWith files:ApiCredential , files:AiRawAdvice .
+files:UploadRequest owl:disjointWith files:AiRawAdvice .
+files:SidecarMetadata owl:disjointWith files:AiRawAdvice .
+files:ApiCredential owl:disjointWith files:AiRawAdvice .
+
+#################################################################
+# Agent / policy markers
+#################################################################
+
+files:PolicyNoSecretsInGit
+    a owl:NamedIndividual ;
+    rdfs:label "PolicyNoSecretsInGit" ;
+    rdfs:comment "Never commit API keys, SMB passwords, config/config.json secrets, or .env." .
+
+files:PolicyDualSurfaceHonesty
+    a owl:NamedIndividual ;
+    rdfs:label "PolicyDualSurfaceHonesty" ;
+    rdfs:comment "FilenameEncodedSurface and ProjectBoundUploadSurface must not be collapsed or mislabeled." .
+
+files:PolicyNoInventLiveRoutesFromLib
+    a owl:NamedIndividual ;
+    rdfs:label "PolicyNoInventLiveRoutesFromLib" ;
+    rdfs:comment "Do not invent operable HTTP routes from missing windowsServerClient/projectService modules." .
+
+files:OntologyRequired
+    a owl:NamedIndividual ;
+    rdfs:label "OntologyRequired" ;
+    rdfs:comment "Domain changes must update ontology in the same changeset and pass validate_spec.py." .
+
+files:PolicyMvpDeferred
+    a owl:NamedIndividual ;
+    rdfs:label "PolicyMvpDeferred" ;
+    rdfs:comment "MVP success criteria remain Deferred until mvp-definition.md is owner-authored." .
+
+files:PolicyOntologyDoesNotReplaceRuntimeIO
+    a owl:NamedIndividual ;
+    rdfs:label "PolicyOntologyDoesNotReplaceRuntimeIO" ;
+    rdfs:comment "SHACL/OWL success is not proof of secure path handling or auth." .
+
+files:HumanOwner
+    a owl:Class ;
+    rdfs:label "HumanOwner" .
+
+files:CodingAgent
+    a owl:Class ;
+    rdfs:label "CodingAgent" .
+
+files:HumanOwner owl:disjointWith files:CodingAgent , files:AiRawAdvice .
+files:CodingAgent owl:disjointWith files:AiRawAdvice .
