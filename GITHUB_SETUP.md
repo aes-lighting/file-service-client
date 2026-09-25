@@ -4,22 +4,27 @@ This repository contains the **AES File Service V0** - a Node.js file upload and
 
 ---
 
-## 📋 What's in This Repository
+## What's in This Repository
 
-- **src/** - Source code (Express server, routes, middleware, services)
-- **config/config.example.json** - Configuration template (copy to config.json and fill in)
-- **package.json** - Node.js dependencies
-- **.gitignore** - Git ignore patterns (config files are excluded for security)
-- **README.md** - Detailed API and deployment documentation
+- **Root JS modules** — Express app (`server.js`, `index.js`), filename-encoded upload helpers, auth/config/logger (as-built; nested `src/` layout is Target)
+- **`src/services/uploadService.js`** — Project-bound packing-slip / intake upload logic
+- **`config.example.json`** — Configuration template (copy locally; never commit secrets)
+- **`.specify/`** — Binding Spec Kit + `files:` ontology (start at [`.specify/README.md`](.specify/README.md))
+- **`spec-kit/`** — Non-binding human architecture notes
+- **`package.json`** — Node.js dependencies
+- **`.gitignore`** — Excludes secrets, venv, runtime data
+- **`README.md`** — API and deployment overview
+
+Product MVP acceptance is **Deferred** — see [`.specify/mvp-definition.md`](.specify/mvp-definition.md).
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/aes-file-service.git
-cd aes-file-service
+git clone https://github.com/aes-lighting/file-service-client.git
+cd file-service-client
 ```
 
 ### 2. Install Dependencies
@@ -29,8 +34,9 @@ npm install --production
 
 ### 3. Create Configuration File
 ```bash
-# Copy the example config
-cp config/config.example.json config/config.json
+# Copy the example config (path expected by config.js is config/config.json)
+mkdir -p config
+cp config.example.json config/config.json
 
 # Edit config/config.json and fill in:
 # - API key (use a strong random value)
@@ -261,22 +267,31 @@ For issues or questions:
 
 ---
 
-## 🗂️ Important Files
+## Important Files
 
-- **config/config.example.json** - Copy this to create your config.json
-- **.gitignore** - Prevents accidental commits of secrets
-- **src/index.js** - Main entry point
-- **README.md** - Full API and production deployment guide
+- **`config.example.json`** — Copy into `config/config.json` (do not commit real keys)
+- **`.gitignore`** — Prevents accidental commits of secrets / ontology venv
+- **`index.js` / `server.js`** — Process entry and Express app (as-built)
+- **`.specify/`** — Binding Spec Kit, specs 001/002, ontology validation
+- **`README.md`** — API and production deployment guide
+
+### Spec Kit / ontology validation (optional for operators)
+
+```bash
+python3 -m venv .specify/scripts/.venv
+.specify/scripts/.venv/bin/pip install -r .specify/scripts/requirements.txt
+.specify/scripts/run_validate_spec.sh
+```
 
 ---
 
-## 🚀 Version History
+## Version History
 
-- **V0 (Current)** - Initial release with core file upload functionality
-- V1 (Planned) - Web dashboard for config management
-- V2 (Planned) - Database audit logging, webhook callbacks
+- **V0 (Current)** — File upload surfaces + Spec Kit / ontology baseline
+- V1 (Planned) — Web dashboard for config management
+- V2 (Planned) — Database audit logging, webhook callbacks
 
 ---
 
-**Last Updated:** August 28, 2026
+**Last Updated:** September 25, 2026
 

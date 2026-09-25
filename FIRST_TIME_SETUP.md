@@ -2,14 +2,17 @@
 
 Follow these steps to get the AES File Service running locally or on a production server.
 
+**Repository:** [aes-lighting/file-service-client](https://github.com/aes-lighting/file-service-client)  
+**Spec Kit:** [`.specify/README.md`](.specify/README.md) (binding contract + ontology). MVP acceptance is **Deferred** — [`.specify/mvp-definition.md`](.specify/mvp-definition.md).
+
 ---
 
 ## Step 1: Clone and Install
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/aes-file-service.git
-cd aes-file-service
+git clone https://github.com/aes-lighting/file-service-client.git
+cd file-service-client
 
 # Install dependencies
 npm install --production
@@ -22,8 +25,9 @@ npm install --production
 ### For Local Development
 
 ```bash
-# Copy the example config
-cp config/config.example.json config/config.json
+# Copy the example config into the path expected by config.js
+mkdir -p config
+cp config.example.json config/config.json
 
 # Edit with your preferred editor
 # Windows (PowerShell)
@@ -62,8 +66,9 @@ mkdir data/INTAKE
 ### For Production (Windows Server)
 
 ```bash
-# Copy the example config
-cp config/config.example.json config/config.json
+# Copy the example config into the path expected by config.js
+mkdir -p config
+cp config.example.json config/config.json
 
 # Edit for your network
 ```
@@ -309,7 +314,7 @@ npm install --production
 ## ✅ Common Setup Issues Checklist
 
 - [ ] npm install completed without errors
-- [ ] config/config.json created (from config.example.json)
+- [ ] config/config.json created (from root config.example.json)
 - [ ] API key is set to a strong random value
 - [ ] Storage path exists and is accessible
 - [ ] Health check returns `status: ok`
